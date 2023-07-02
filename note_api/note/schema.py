@@ -1,8 +1,10 @@
 from pydantic import BaseModel, Field
 
 
-class NoteSchema(BaseModel):
-    title: str = Field(title="The title of the note", max_length=255)
-    body: str = Field(title="The body of the note")
-    # tags
-    # links
+class NoteIn(BaseModel):
+    content: str = Field(title="The body of the note")
+
+
+class NoteOut(BaseModel):
+    id: int = Field(title="The primary id of the note")
+    content: str = Field(title="The body of the note")

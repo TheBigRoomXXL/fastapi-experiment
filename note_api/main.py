@@ -1,11 +1,11 @@
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 
-from shared.database import Base, engine
+from shared.database import OrmBase, engine
 from note import note_router
 
 
-Base.metadata.create_all(engine)
+OrmBase.metadata.create_all(engine)
 
 app = FastAPI()
 app.include_router(note_router)
